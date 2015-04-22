@@ -1,0 +1,164 @@
+#N canvas 227 350 1134 634 10;
+#X obj 359 20 vsl 15 128 0 127 0 0 Detune empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 359 418 vsl 15 128 0 127 0 0 VCOEgInt empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 489 20 vsl 15 128 0 127 0 0 Cutoff empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 489 220 vsl 15 128 0 127 0 0 VCFEgInt empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 619 18 vsl 15 128 0 127 0 0 LFORate empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 619 218 vsl 15 128 0 127 0 0 LFOPitchInt empty empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 619 418 vsl 15 128 0 127 0 0 LFOCutoffInt empty empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 229 108 vsl 15 128 0 127 0 0 GateTime empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 209 245 GATE TIME;
+#X obj 229 308 vsl 15 128 0 127 0 0 Expression empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 359 218 vsl 15 128 0 127 0 0 Portamento empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 208 445 EXPRESSION;
+#N canvas 617 214 1301 428 Midi 0;
+#X obj 172 202 ctlout 41 1;
+#X floatatom 172 145 5 0 0 0 - Octave -;
+#X obj 330 55 ctlout 42 1;
+#X floatatom 330 28 5 0 0 0 - Detune -;
+#X floatatom 330 188 5 0 0 0 - VCOEgInt -;
+#X obj 330 215 ctlout 43 1;
+#X floatatom 460 28 5 0 0 0 - Cutoff -;
+#X obj 460 55 ctlout 44 1;
+#X floatatom 460 108 5 0 0 0 - VCFEgInt -;
+#X obj 460 135 ctlout 45 1;
+#X floatatom 597 28 5 0 0 0 - LFORate -;
+#X floatatom 597 108 5 0 0 0 - LFOPitchInt -;
+#X obj 597 55 ctlout 46 1;
+#X obj 597 135 ctlout 47 1;
+#X floatatom 597 188 5 0 0 0 - LFOCutoffInt -;
+#X obj 597 215 ctlout 48 1;
+#X floatatom 27 108 5 0 0 0 - Expression -;
+#X obj 27 135 ctlout 11 1;
+#X floatatom 330 108 5 0 0 0 - Portamento -;
+#X text 24 85 EXPRESSION;
+#X obj 330 135 ctlout 5 1;
+#X floatatom 172 35 5 0 0 0 - Voice -;
+#X obj 172 92 ctlout 40 1;
+#X msg 1173 109 -5;
+#X msg 1130 109 -4;
+#X msg 1216 109 -6;
+#X obj 1130 135 midiout 1;
+#X obj 1130 86 bng 15 250 50 0 empty Pause empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1173 86 bng 15 250 50 0 empty Resume empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1216 86 bng 15 250 50 0 empty Start empty 17 7 0 10 -262144
+-1 -1;
+#X text 327 85 PORTAMENTO;
+#X text 169 12 VOICE;
+#X text 169 122 OCTAVE;
+#X text 327 5 DETUNE;
+#X text 327 165 VCO EG INT;
+#X text 457 5 CUTOFF;
+#X text 457 85 VCF EG INT;
+#X text 594 5 LFO RATE;
+#X text 594 85 LFO PITCH INT;
+#X text 594 165 LFO CUTOFF INT;
+#X floatatom 737 28 5 0 0 0 - EGAttack -;
+#X obj 737 55 ctlout 49 1;
+#X text 734 5 EG ATTACK;
+#X floatatom 737 108 5 0 0 0 - EGDecayRelease -;
+#X obj 737 135 ctlout 50 1;
+#X text 734 85 EG DECAY/RELEASE;
+#X floatatom 737 188 5 0 0 0 - EGSustain -;
+#X obj 737 215 ctlout 51 1;
+#X text 734 165 EG SUSTAIN;
+#X floatatom 887 108 5 0 0 0 - DelayTime -;
+#X text 884 85 DELAY TIME;
+#X obj 887 135 ctlout 52 1;
+#X floatatom 1027 108 5 0 0 0 - DelayFeedback -;
+#X text 1024 85 DELAY FEEDBACK;
+#X obj 1027 135 ctlout 53 1;
+#X obj 172 63 * 22;
+#X obj 172 173 * 22;
+#X connect 1 0 56 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 14 0 15 0;
+#X connect 16 0 17 0;
+#X connect 18 0 20 0;
+#X connect 21 0 55 0;
+#X connect 23 0 26 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 0;
+#X connect 27 0 24 0;
+#X connect 28 0 23 0;
+#X connect 29 0 25 0;
+#X connect 40 0 41 0;
+#X connect 43 0 44 0;
+#X connect 46 0 47 0;
+#X connect 49 0 51 0;
+#X connect 52 0 54 0;
+#X connect 55 0 22 0;
+#X connect 56 0 0 0;
+#X restore 5 4 pd Midi;
+#X floatatom 223 468 5 0 0 0 - Expression -;
+#X floatatom 353 378 5 0 0 0 - Portamento -;
+#X floatatom 73 268 5 0 0 0 - Voice -;
+#X floatatom 73 348 5 0 0 0 - Octave -;
+#X floatatom 353 180 5 0 0 0 - Detune -;
+#X floatatom 352 578 5 0 0 0 - VCOEgInt -;
+#X floatatom 482 180 5 0 0 0 - Cutoff -;
+#X floatatom 484 380 5 0 0 0 - VCFEgInt -;
+#X floatatom 612 178 5 0 0 0 - LFORate -;
+#X floatatom 612 378 5 0 0 0 - LFOPitchInt -;
+#X floatatom 614 578 5 0 0 0 - LFOCutoffInt -;
+#X floatatom 223 268 5 0 0 0 - GateTime -;
+#X obj 19 155 bng 30 250 50 0 Pause empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 69 155 bng 30 250 50 0 Resume empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 119 155 bng 30 250 50 0 Start empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 17 191 PAUSE;
+#X text 65 191 RESUME;
+#X text 121 191 PLAY;
+#X text 341 355 PORTAMENTO;
+#X text 70 245 VOICE;
+#X text 68 325 OCTAVE;
+#X text 347 157 DETUNE;
+#X text 335 555 VCO EG INT;
+#X text 477 157 CUTOFF;
+#X text 465 357 VCF EG INT;
+#X text 599 155 LFO RATE;
+#X text 593 355 LFO PITCH INT;
+#X text 599 555 LFO CUTOFF INT;
+#X obj 749 18 vsl 15 128 0 127 0 0 EGAttack empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 744 178 5 0 0 0 - EGAttack -;
+#X text 729 155 EG ATTACK;
+#X obj 749 218 vsl 15 128 0 127 0 0 EGDecayRelease empty empty 0 -9
+0 10 -262144 -1 -1 0 1;
+#X floatatom 744 378 5 0 0 0 - EGDecayRelease -;
+#X text 716 355 EG DECAY/RELEASE;
+#X obj 749 418 vsl 15 128 0 127 0 0 EGSustain empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X floatatom 744 578 5 0 0 0 - EGSustain -;
+#X text 726 555 EG SUSTAIN;
+#X obj 879 218 vsl 15 128 0 127 0 0 DelayTime empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X floatatom 874 378 5 0 0 0 - DelayTime -;
+#X text 859 355 DELAY TIME;
+#X obj 1009 218 vsl 15 128 0 127 0 0 DelayFeedback empty empty 0 -9
+0 10 -262144 -1 -1 0 1;
+#X floatatom 1004 378 5 0 0 0 - DelayFeedback -;
+#X text 978 355 DELAY FEEDBACK;
+#X obj 39 224 hradio 15 1 0 6 Voice empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 39 304 hradio 15 1 0 6 Octave empty empty 0 -8 0 10 -262144
+-1 -1 0;
