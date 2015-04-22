@@ -1,0 +1,208 @@
+#N canvas 804 214 1094 740 10;
+#X obj 309 400 vsl 15 128 0 127 0 0 LFORate empty empty 0 -9 0 10 -262144
+-1 -1 7100 1;
+#X obj 409 400 vsl 15 128 0 127 0 0 LFOInt empty empty 0 -9 0 10 -262144
+-1 -1 8500 1;
+#X text 291 537 LFO RATE;
+#X text 397 537 LFO INT;
+#X obj 509 400 vsl 15 128 0 127 0 0 VCOPitch1 empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 485 537 VCO PITCH 1;
+#X obj 609 400 vsl 15 128 0 127 0 0 VCOPitch2 empty empty 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X text 585 537 VCO PITCH 2;
+#X obj 709 400 vsl 15 128 0 127 0 0 VCOPitch3 empty empty 0 -9 0 10
+-262144 -1 -1 4600 1;
+#X text 685 537 VCO PITCH 3;
+#X obj 409 118 vsl 15 128 0 127 0 0 EGAttack empty empty 0 -9 0 10
+-262144 -1 -1 600 1;
+#X text 389 255 EG ATTACK;
+#X obj 509 118 vsl 15 128 0 127 0 0 Decay empty empty 0 -9 0 10 -262144
+-1 -1 2800 1;
+#X text 489 255 EG DECAY;
+#X obj 609 118 vsl 15 128 0 127 0 0 CutoffEGInt empty empty 0 -9 0
+10 -262144 -1 -1 12700 1;
+#X text 589 255 CUTTOF EG INT;
+#X obj 709 118 vsl 15 128 0 127 0 0 GateTime empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 689 255 GATE TIME;
+#X obj 209 118 vsl 15 128 0 127 0 0 Expression empty empty 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X obj 309 118 vsl 15 128 0 127 0 0 SlideTime empty empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 197 255 EXPRESSION;
+#X text 198 494 OCTAVE;
+#X obj 209 398 vradio 15 1 0 6 Octave empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#N canvas 83 189 1262 269 Midi 1;
+#X obj 283 135 ctlout 41 1;
+#X floatatom 283 108 5 0 0 0 - LFORate -;
+#X obj 370 135 ctlout 42 1;
+#X floatatom 370 108 5 0 0 0 - LFOInt -;
+#X text 280 85 LFO RATE;
+#X text 367 85 LFO INT;
+#X floatatom 455 78 5 0 0 0 - VCOPitch1 -;
+#X text 452 55 VCO PITCH 1;
+#X obj 455 135 ctlout 43 1;
+#X floatatom 640 78 5 0 0 0 - VCOPitch2 -;
+#X text 637 55 VCO PITCH 2;
+#X obj 640 135 ctlout 44 1;
+#X floatatom 850 78 5 0 0 0 - VCOPitch3 -;
+#X text 847 55 VCO PITCH 3;
+#X obj 850 135 ctlout 45 1;
+#X floatatom 27 208 5 0 0 0 - EGAttack -;
+#X text 24 185 EG ATTACK;
+#X floatatom 117 208 5 0 0 0 - Decay -;
+#X obj 27 235 ctlout 46 1;
+#X text 114 185 EG DECAY/RELEASE;
+#X obj 117 235 ctlout 47 1;
+#X floatatom 227 208 5 0 0 0 - CutoffEGInt -;
+#X text 224 185 CUTOFF EG INT;
+#X obj 227 235 ctlout 48 1;
+#X floatatom 27 108 5 0 0 0 - Expression -;
+#X obj 27 135 ctlout 11 1;
+#X floatatom 117 108 5 0 0 0 - SlideTime -;
+#X text 24 85 EXPRESSION;
+#X obj 117 135 ctlout 5 1;
+#X floatatom 199 84 5 0 0 0 - Octave -;
+#X obj 199 135 ctlout 40 1;
+#X text 196 61 OCTAVE;
+#X obj 199 109 * 22;
+#X text 114 85 SLIDE TIME;
+#X obj 1036 135 noteout;
+#X msg 1036 109 44 0 1;
+#X msg 1173 109 -5;
+#X msg 1130 109 -4;
+#X msg 1216 109 -6;
+#X obj 1130 135 midiout 1;
+#X obj 1130 86 bng 15 250 50 0 empty Pause empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1173 86 bng 15 250 50 0 empty Resume empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1216 86 bng 15 250 50 0 empty Start empty 17 7 0 10 -262144
+-1 -1;
+#X msg 520 77 0;
+#X msg 594 77 127;
+#X msg 557 77 63;
+#X obj 546 0 hradio 15 1 0 3 empty VCOPitch1Control empty 0 -8 0 10
+-262144 -1 -1 0;
+#X obj 546 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 546 21 sel 0 1 2;
+#X obj 563 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 580 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 704 77 0;
+#X msg 778 77 127;
+#X msg 741 77 63;
+#X obj 730 0 hradio 15 1 0 3 empty VCOPitch2Control empty 0 -8 0 10
+-262144 -1 -1 1;
+#X obj 730 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 730 21 sel 0 1 2;
+#X obj 747 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 764 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 914 77 0;
+#X msg 988 77 127;
+#X msg 951 77 63;
+#X obj 940 0 hradio 15 1 0 3 empty VCOPitch3Control empty 0 -8 0 10
+-262144 -1 -1 0;
+#X obj 940 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 940 21 sel 0 1 2;
+#X obj 957 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 974 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 284 45 90;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 6 0 8 0;
+#X connect 9 0 11 0;
+#X connect 12 0 14 0;
+#X connect 15 0 18 0;
+#X connect 17 0 20 0;
+#X connect 21 0 23 0;
+#X connect 24 0 25 0;
+#X connect 26 0 28 0;
+#X connect 29 0 32 0;
+#X connect 32 0 30 0;
+#X connect 35 0 34 0;
+#X connect 36 0 39 0;
+#X connect 37 0 39 0;
+#X connect 38 0 39 0;
+#X connect 40 0 37 0;
+#X connect 41 0 36 0;
+#X connect 42 0 38 0;
+#X connect 43 0 8 0;
+#X connect 44 0 8 0;
+#X connect 45 0 8 0;
+#X connect 46 0 48 0;
+#X connect 47 0 43 0;
+#X connect 48 0 47 0;
+#X connect 48 1 49 0;
+#X connect 48 2 50 0;
+#X connect 49 0 45 0;
+#X connect 50 0 44 0;
+#X connect 51 0 11 0;
+#X connect 52 0 11 0;
+#X connect 53 0 11 0;
+#X connect 54 0 56 0;
+#X connect 55 0 51 0;
+#X connect 56 0 55 0;
+#X connect 56 1 57 0;
+#X connect 56 2 58 0;
+#X connect 57 0 53 0;
+#X connect 58 0 52 0;
+#X connect 59 0 14 0;
+#X connect 60 0 14 0;
+#X connect 61 0 14 0;
+#X connect 62 0 64 0;
+#X connect 63 0 59 0;
+#X connect 64 0 63 0;
+#X connect 64 1 65 0;
+#X connect 64 2 66 0;
+#X connect 65 0 61 0;
+#X connect 66 0 60 0;
+#X connect 67 0 0 0;
+#X restore 5 4 pd Midi;
+#X floatatom 203 278 5 0 0 0 - Expression -;
+#X floatatom 303 278 5 0 0 0 - SlideTime -;
+#X text 291 255 SLIDE TIME;
+#X floatatom 202 517 5 0 0 0 - Octave -;
+#X floatatom 303 560 5 0 0 0 - LFORate -;
+#X floatatom 403 560 5 0 0 0 - LFOInt -;
+#X floatatom 502 560 5 0 0 0 - VCOPitch1 -;
+#X floatatom 604 560 5 0 0 0 - VCOPitch2 -;
+#X floatatom 704 560 5 0 0 0 - VCOPitch3 -;
+#X floatatom 402 278 5 0 0 0 - EGAttack -;
+#X floatatom 502 278 5 0 0 0 - Decay -;
+#X floatatom 604 278 5 0 0 0 - CutoffEGInt -;
+#X floatatom 703 278 5 0 0 0 - GateTime -;
+#X obj 19 116 bng 30 250 50 0 Pause empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 69 116 bng 30 250 50 0 Resume empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 119 116 bng 30 250 50 0 Start empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 17 152 PAUSE;
+#X text 65 152 RESUME;
+#X text 121 152 PLAY;
+#X obj 533 398 vradio 15 1 0 3 VCOPitch1Control empty empty 0 -8 0
+10 -262144 -1 -1 0;
+#X text 559 412 OFF;
+#X text 551 428 + 12;
+#X text 551 396 - 12;
+#X obj 633 398 vradio 15 1 0 3 VCOPitch2Control empty empty 0 -8 0
+10 -262144 -1 -1 1;
+#X text 659 412 OFF;
+#X text 651 428 + 12;
+#X text 651 396 - 12;
+#X obj 733 398 vradio 15 1 0 3 VCOPitch3Control empty empty 0 -8 0
+10 -262144 -1 -1 0;
+#X text 759 412 OFF;
+#X text 751 428 + 12;
+#X text 751 396 - 12;
